@@ -1,8 +1,12 @@
 package br.com.picpayandroid.ui
 
+import android.view.View
 import androidx.lifecycle.*
+import androidx.navigation.findNavController
+import br.com.picpayandroid.R
 import br.com.picpayandroid.model.UserModel
 import br.com.picpayandroid.retrofit.PicPayService
+import br.com.picpayandroid.ui.userlist.UserListRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
@@ -70,6 +74,10 @@ class UserListViewModel(private val userListRepository: UserListRepository) : Vi
                     }
                 })
         }
+    }
+
+    fun startClickButtonNavigateConfirmationEspressoFragment(view: View) {
+            view.findNavController().navigate(R.id.action_userListFragment_to_confirmationEspressoFragment)
     }
 
     companion object {

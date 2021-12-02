@@ -1,4 +1,4 @@
-package br.com.picpayandroid.ui
+package br.com.picpayandroid.ui.userlist
 
 import androidx.annotation.WorkerThread
 import br.com.picpayandroid.db.UserDao

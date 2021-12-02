@@ -1,4 +1,4 @@
-package br.com.picpayandroid.ui
+package br.com.picpayandroid.ui.userlist
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.picpayandroid.R
 import br.com.picpayandroid.databinding.FragmentUserListBinding
 import br.com.picpayandroid.di.UserListApplication
+import br.com.picpayandroid.ui.UserListViewModel
+import br.com.picpayandroid.ui.UserListViewModelFactory
 
 class UserListFragment : Fragment() {
 

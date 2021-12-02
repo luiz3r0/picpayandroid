@@ -1,4 +1,4 @@
-package br.com.picpayandroid.ui
+package br.com.picpayandroid.ui.userlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

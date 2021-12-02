@@ -2,7 +2,7 @@ package br.com.picpayandroid.di
 
 import android.app.Application
 import br.com.picpayandroid.db.UserDatabase
-import br.com.picpayandroid.ui.UserListRepository
+import br.com.picpayandroid.ui.userlist.UserListRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
