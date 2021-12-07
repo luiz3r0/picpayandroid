@@ -1,8 +1,8 @@
-package br.com.picpayandroid.ui.userlist
+package br.com.picpayandroid.data.repository
 
 import androidx.annotation.WorkerThread
-import br.com.picpayandroid.db.UserDao
-import br.com.picpayandroid.model.UserModel
+import br.com.picpayandroid.data.database.UserDao
+import br.com.picpayandroid.data.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
 class UserListRepository(private val userDao: UserDao) {
@@ -11,7 +11,7 @@ class UserListRepository(private val userDao: UserDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insert(listUserModel: List<UserModel>) {
+    suspend fun insert(listUserModel: List<UserModel>?) {
         userDao.insert(listUserModel)
     }
 }

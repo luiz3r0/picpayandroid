@@ -1,12 +1,11 @@
-package br.com.picpayandroid.ui
+package br.com.picpayandroid.presentation.userlist.viewmodel
 
-import android.view.View
 import androidx.lifecycle.*
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
 import br.com.picpayandroid.R
-import br.com.picpayandroid.model.UserModel
-import br.com.picpayandroid.retrofit.PicPayService
-import br.com.picpayandroid.ui.userlist.UserListRepository
+import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.data.repository.UserListRepository
+import br.com.picpayandroid.data.api.PicPayService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +17,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class UserListViewModel(private val userListRepository: UserListRepository) : ViewModel() {
+class UserListViewModel(private val userListRepository: UserListRepository, private val navController: NavController) : ViewModel() {
 
     private val gson: Gson by lazy { GsonBuilder().create() }
     private val okHttp: OkHttpClient by lazy {
@@ -40,12 +39,13 @@ class UserListViewModel(private val userListRepository: UserListRepository) : Vi
 //    val dataRetrofit: LiveData<List<UserModel>>
 //        get() = _dataRetrofit
 
-    private val _dataRoom = userListRepository.allUsers.asLiveData() as MutableLiveData<List<UserModel>>
+    private val _dataRoom =
+        userListRepository.allUsers.asLiveData() as MutableLiveData<List<UserModel>>
     val dataRoom: LiveData<List<UserModel>>
         get() = _dataRoom
 
 
-    fun insert(listUserModel: List<UserModel>) = viewModelScope.launch(Dispatchers.IO) {
+    fun insert(listUserModel: List<UserModel>?) = viewModelScope.launch(Dispatchers.IO) {
         userListRepository.insert(listUserModel)
     }
 
@@ -66,9 +66,10 @@ class UserListViewModel(private val userListRepository: UserListRepository) : Vi
                         call: Call<List<UserModel>>,
                         response: Response<List<UserModel>>
                     ) {
-                        if (response.isSuccessful) {
 
-                            insert(response.body()!!)
+                        if (response.isSuccessful && response.body() != null) {
+
+                            insert(response.body())
 
                         }
                     }
@@ -76,23 +77,12 @@ class UserListViewModel(private val userListRepository: UserListRepository) : Vi
         }
     }
 
-    fun startClickButtonNavigateConfirmationEspressoFragment(view: View) {
-            view.findNavController().navigate(R.id.action_userListFragment_to_confirmationEspressoFragment)
+    fun startClickButtonNavigateConfirmationEspressoFragment() {
+        navController.navigate(R.id.action_userListFragment_to_confirmationEspressoFragment)
     }
 
     companion object {
         private const val URL = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
-    }
-}
-
-class UserListViewModelFactory(private val userListRepository: UserListRepository) :
-    ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UserListViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return UserListViewModel(userListRepository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
 

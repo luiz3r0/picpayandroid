@@ -11,5 +11,4 @@ fun loadImage(view: ImageView, url: String, error: Drawable) {
         .load(url)
         .error(error)
         .into(view)
-
 }

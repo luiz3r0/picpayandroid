@@ -1,4 +1,4 @@
-package br.com.picpayandroid.ui.userlist
+package br.com.picpayandroid.presentation.userlist.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,18 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.picpayandroid.R
 import br.com.picpayandroid.databinding.FragmentUserListBinding
-import br.com.picpayandroid.di.UserListApplication
-import br.com.picpayandroid.ui.UserListViewModel
-import br.com.picpayandroid.ui.UserListViewModelFactory
+import br.com.picpayandroid.presentation.userlist.adapter.UserListAdapter
+import br.com.picpayandroid.presentation.userlist.viewmodel.UserListViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class UserListFragment : Fragment() {
 
-    private val userListViewModel: UserListViewModel by viewModels {
-        UserListViewModelFactory((activity?.applicationContext as UserListApplication).repository)
+    private val userListViewModel: UserListViewModel by viewModel{
+        parametersOf(findNavController())
     }
     private lateinit var fragmentUserListBinding: FragmentUserListBinding
 
@@ -57,4 +58,5 @@ class UserListFragment : Fragment() {
             }
         })
     }
+
 }

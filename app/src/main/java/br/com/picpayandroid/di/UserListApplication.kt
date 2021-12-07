@@ -1,14 +1,19 @@
 package br.com.picpayandroid.di
 
 import android.app.Application
-import br.com.picpayandroid.db.UserDatabase
-import br.com.picpayandroid.ui.userlist.UserListRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class UserListApplication: Application() {
+    override fun onCreate() {
+        super.onCreate()
 
-    private val applicationScope = CoroutineScope(SupervisorJob())
-    private val userDatabase by lazy { UserDatabase.getDatabase(this, applicationScope) }
-    val repository by lazy { UserListRepository(userDatabase.userDao()) }
+        startKoin{
+            androidContext(this@UserListApplication)
+            modules(viewModelModule)
+            modules(repositoryModule)
+            modules(daoModule)
+        }
+    }
 }

@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="br.com.picpayandroid.ui.UserListViewModel" />
+            type="br.com.picpayandroid.presentation.userlist.viewmodel.UserListViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="16dp"
-            android:onClick="@{(view)->viewmodel.startClickButtonNavigateConfirmationEspressoFragment(view)}"
+            android:onClick="@{()->viewmodel.startClickButtonNavigateConfirmationEspressoFragment()}"
             android:layout_marginBottom="16dp"
             app:srcCompat="@android:drawable/ic_dialog_email"
             android:contentDescription="@string/todo" />

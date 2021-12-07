@@ -1,4 +1,4 @@
-package br.com.picpayandroid.model
+package br.com.picpayandroid.data.model
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

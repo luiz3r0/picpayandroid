@@ -1,4 +1,4 @@
-package br.com.picpayandroid.ui.confirmationespresso
+package br.com.picpayandroid.presentation.confirmationespresso
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

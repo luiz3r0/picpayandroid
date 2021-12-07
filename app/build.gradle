@@ -110,6 +110,15 @@ dependencies {
     // CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:3.1.4"
+
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:3.1.4"
+
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.1.4"
+
     // Test Junit
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

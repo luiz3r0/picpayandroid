@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/userListFragment"
-        android:name="br.com.picpayandroid.ui.userlist.UserListFragment"
+        android:name="br.com.picpayandroid.presentation.userlist.view.UserListFragment"
         android:label="fragment_user_list"
         tools:layout="@layout/fragment_user_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmationEspressoFragment"
-        android:name="br.com.picpayandroid.ui.confirmationespresso.ConfirmationEspressoFragment"
+        android:name="br.com.picpayandroid.presentation.confirmationespresso.ConfirmationEspressoFragment"
         android:label="fragment_confirmation_espresso"
         tools:layout="@layout/fragment_confirmation_espresso" />
 </navigation>
