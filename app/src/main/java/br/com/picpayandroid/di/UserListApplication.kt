@@ -2,7 +2,6 @@ package br.com.picpayandroid.di
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 class UserListApplication: Application() {
@@ -11,9 +10,7 @@ class UserListApplication: Application() {
 
         startKoin{
             androidContext(this@UserListApplication)
-            modules(viewModelModule)
-            modules(repositoryModule)
-            modules(daoModule)
+            modules(listOf(viewModelModule, repositoryModule, daoModule))
         }
     }
 }

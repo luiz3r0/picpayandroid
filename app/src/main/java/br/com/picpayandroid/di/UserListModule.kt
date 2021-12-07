@@ -19,11 +19,11 @@ val viewModelModule = module {
 }
 
 val repositoryModule = module {
-    single {
+    factory {
         UserListRepository(get()) }
 }
 
 val daoModule = module {
-    single {
+    factory {
         UserDatabase.getInstance(androidContext()).userDao }
 }
