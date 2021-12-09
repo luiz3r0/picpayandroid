@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.domain.model.UserModel
 
 
 @Database(entities = [UserModel::class], version = 1, exportSchema = false)

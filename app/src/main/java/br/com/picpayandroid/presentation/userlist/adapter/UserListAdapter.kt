@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.domain.model.UserModel
 import br.com.picpayandroid.databinding.ListItemUserBinding
 
 class UserListAdapter : ListAdapter<UserModel, UserListAdapter.ViewHolder>(UserListDiffCallback()) {

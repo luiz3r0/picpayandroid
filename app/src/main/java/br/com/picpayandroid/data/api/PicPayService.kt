@@ -1,6 +1,6 @@
 package br.com.picpayandroid.data.api
 
-import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.domain.model.UserModel
 import retrofit2.Call
 import retrofit2.http.GET
 

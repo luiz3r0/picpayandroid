@@ -2,7 +2,7 @@ package br.com.picpayandroid.data.repository
 
 import androidx.annotation.WorkerThread
 import br.com.picpayandroid.data.database.UserDao
-import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.domain.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
 class UserListRepository(private val userDao: UserDao) {

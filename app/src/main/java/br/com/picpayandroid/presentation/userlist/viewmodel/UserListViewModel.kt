@@ -3,7 +3,7 @@ package br.com.picpayandroid.presentation.userlist.viewmodel
 import androidx.lifecycle.*
 import androidx.navigation.NavController
 import br.com.picpayandroid.R
-import br.com.picpayandroid.data.model.UserModel
+import br.com.picpayandroid.domain.model.UserModel
 import br.com.picpayandroid.data.repository.UserListRepository
 import br.com.picpayandroid.data.api.PicPayService
 import com.google.gson.Gson
